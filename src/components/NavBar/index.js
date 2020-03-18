@@ -105,8 +105,8 @@ function PrimarySearchAppBar(props) {
       onClose={handleMenuClose}
     >
       <MenuItem component={Link} to="/dashboard"><AccountCircle />{'\u00A0'}Profile</MenuItem>
-      <MenuItem onClick={logout}><ExitToApp />{'\u00A0'}Logout</MenuItem>
       <MenuItem component={Link} to="/help"><HelpOutline />{'\u00A0'}Help</MenuItem>
+      <MenuItem onClick={logout}><ExitToApp />{'\u00A0'}Logout</MenuItem>
     </Menu>
   );
 
