@@ -79,9 +79,7 @@ function First(props) {
                         component={Link}
                         to="/dashboard"
                         className={classes.submit}>
-                        {isFirst
-                        ? 'Skip'
-                        : 'Cancel'}
+                        Cancel
                     </Button>
                     <Button
                         disabled={disabled}

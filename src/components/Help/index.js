@@ -57,6 +57,7 @@ function Help(props) {
     const [feedback, setFeedback] = useState('')
 
     const { classes } = props
+
     return (
         <div>
             <Nav />
@@ -109,7 +110,7 @@ function Help(props) {
                         <form className={classes.form} onSubmit={e => e.preventDefault() && false}>
                                 <FormControl required fullWidth>
                                     <InputLabel htmlFor="feedback">Feedback</InputLabel>
-                                    <Input id="feedback" name="feedback" autoFocus onChange={setFeedback} value={feedback} fullWidth />
+                                    <Input id="feedback" name="feedback" autoFocus onChange={(e) => {setFeedback(e.target.value)}} value={feedback} fullWidth />
                                 </FormControl>
                                 <Button
                                     align="center"

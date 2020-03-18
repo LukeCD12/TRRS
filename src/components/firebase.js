@@ -146,6 +146,12 @@ const firebaseConfig = {
         return data
       }
 
+      async uploadFeedback(value) {
+        this.db.collection('feedback').doc(this.auth.currentUser.uid).set({
+          feedback: value
+        })
+      }
+
  } 
 
  export default new Firebase()
