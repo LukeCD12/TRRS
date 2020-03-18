@@ -54,7 +54,7 @@ function First(props) {
 
     const { classes } = props
 
-    firebase.firstTime()
+    const isFirst = firebase.firstTime()
 
     return (
         <main className={classes.main}>
@@ -79,7 +79,7 @@ function First(props) {
                         component={Link}
                         to="/dashboard"
                         className={classes.submit}>
-                        {firebase.getFirstTime()
+                        {isFirst
                         ? 'Skip'
                         : 'Cancel'}
                     </Button>

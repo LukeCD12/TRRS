@@ -103,14 +103,14 @@ const firebaseConfig = {
           const upload = this.storage.ref(`images/${newFile.name}`).put(newFile)
           upload.on(
             "state_changed",
-            {/*snapshot => {
+            snapshot => {
               const progress = Math.round(
                 (snapshot.bytesTransferred / snapshot.totalBytes) * 100
               )
             },
             error => {
               console.log(error)
-            }, */},
+            },
             () => {
               this.storage.ref("images").child(newFile.name).getDownloadURL().then(url => {
                 return this.auth.currentUser.updateProfile({
