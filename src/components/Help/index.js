@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { ExpansionPanel, ExpansionPanelSummary, Typography, ExpansionPanelDetails, FormControl, InputLabel, Input, Button } from '@material-ui/core'
+import { ExpansionPanel, ExpansionPanelSummary, Typography, ExpansionPanelDetails, FormControl, InputLabel, Input, Button, Snackbar } from '@material-ui/core'
+import Alert from '@material-ui/lab/Alert'
 import { ExpandMore } from '@material-ui/icons'
 import Nav from '../NavBar'
 import firebase from '../firebase'
@@ -52,11 +53,29 @@ const styles = theme => ({
     },
 })
 
+function Alerter(props) {
+    return <Alert elevation={6} variant="filled" {...props} />;
+}
+
+
 function Help(props) {
 
     const [feedback, setFeedback] = useState('')
+    const [submitOpen, setSubmitOpen] = useState(false)
 
     const { classes } = props
+
+    const handleSubmitClick = () => {
+        setSubmitOpen(true);
+    };
+    
+      const handleSubmitClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setSubmitOpen(false);
+    };
 
     return (
         <div>
@@ -119,13 +138,18 @@ function Help(props) {
                                     variant="contained"
                                     color="secondary"
                                     className={classes.submit}
-                                    onClick={() => {messageToFirebase()}}>
+                                    onClick={() => {messageToFirebase(); handleSubmitClick()}}>
                                     Submit
                                 </Button>
                         </form>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             </div>
+            <Snackbar open={submitOpen} autoHideDuration={6000} onClose={handleSubmitClose}>
+                <Alerter onClose={handleSubmitClose} severity="success">
+                    Your Feedback has been submitted
+                </Alerter>
+            </Snackbar>
         </div>
     )
 
