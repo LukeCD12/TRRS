@@ -10,6 +10,7 @@ import First from '../First'
 import Rankings from '../Rankings'
 import Help from '../Help'
 import Admin from '../Admin'
+import Match from '../Match'
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { CssBaseline, CircularProgress } from '@material-ui/core'
@@ -71,6 +72,7 @@ function App() {
                         <MemberRoute exact path="/update-profile" component={First} />
                         <MemberRoute exact path="/rankings" component={Rankings} />
                         <MemberRoute exact path="/help" component={Help} />
+                        <MemberRoute exact path="/match" component={Match} />
                         <AdminRoute exact path="/admin" component={Admin} />
                         <Redirect to="/" />
                     </Switch>

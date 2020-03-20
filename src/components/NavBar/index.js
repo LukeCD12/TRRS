@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { AppBar, Toolbar, IconButton, Typography, MenuItem, Menu, Avatar, CircularProgress } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-import { Assessment, ExitToApp, SupervisorAccount, HelpOutline, AccountCircle } from '@material-ui/icons'
+import { Assessment, ExitToApp, SupervisorAccount, HelpOutline, AccountCircle, VideogameAsset } from '@material-ui/icons'
 import firebase from '../firebase';
 import { withRouter, Link } from 'react-router-dom'
 import Mobile from '../MobileDrawer'
@@ -182,6 +182,18 @@ function PrimarySearchAppBar(props) {
           </IconButton>
             :
           null}
+          <IconButton
+              edge="end"
+              aria-label="rankings"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              component={Link}
+              to="/match"
+              color="inherit"
+            >
+              Play a Match{'\u00A0'}
+            <VideogameAsset />
+          </IconButton>
           <IconButton
               edge="end"
               aria-label="rankings"

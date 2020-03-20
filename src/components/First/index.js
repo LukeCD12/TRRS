@@ -54,8 +54,6 @@ function First(props) {
 
     const { classes } = props
 
-    const isFirst = firebase.firstTime()
-
     return (
         <main className={classes.main}>
             <Paper className={classes.paper}>
