@@ -49,7 +49,7 @@ function Register(props) {
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
 
-    const disabled = (password === '') || (name === '') || (password !== passwordConfirm) || (!abcRegex.test(abc)) || (abc !== abcConfirm)
+    const disabled = (password === '') || (name === '') || (password !== passwordConfirm) || (!abcRegex.test(abc.toLowerCase)) || (abc.toLowerCase !== abcConfirm.toLowerCase)
 
     return (
         <main className={classes.main}>
@@ -115,8 +115,8 @@ function Register(props) {
 
     async function onRegister() {
         try {
-            const email = abc + "" + utsaEmail
-            await firebase.register(name, email, password, abc)
+            const email = abc.toLowerCase + "" + utsaEmail
+            await firebase.register(name, email, password, abc.toLowerCase)
             props.history.replace('/login')
             alert('Account created please login')
         }

@@ -74,6 +74,9 @@ const firebaseConfig = {
       }
 
       async getCurrentUsername() {
+        this.db.collection('members').doc(this.auth.currentUser.uid).update({
+          first: false
+        })
           return this.auth.currentUser && this.auth.currentUser.displayName
       }
 
@@ -107,6 +110,7 @@ const firebaseConfig = {
               const progress = Math.round(
                 (snapshot.bytesTransferred / snapshot.totalBytes) * 100
               )
+              console.log(progress)
             },
             error => {
               console.log(error)
